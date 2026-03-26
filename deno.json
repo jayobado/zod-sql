@@ -16,6 +16,6 @@
 
   "compilerOptions": {
     "strict": true,
-    "lib": ["ESNext", "DENO.NS"]
+    "lib": ["ESNext", "Deno.NS"]
   }
 }
