@@ -33,23 +33,23 @@ Generate SQL DDL statements directly from Zod schemas. Supports schema snapshots
 
 ### Deno (JSR)
 ```sh
-deno add jsr:@yourname/zod-sql
+deno add jsr:@jayobado/zod-sql
 ```
 
 Or in `deno.json`:
 ```json
 {
   "imports": {
-    "@zod-sql": "jsr:@yourname/zod-sql@^0.1.0"
+    "@zod-sql": "jsr:@jayobado/zod-sql@^0.1.0"
   }
 }
 ```
 
 ### Node / Bun
 ```sh
-npm install @yourname/zod-sql
+npm install @jayobado/zod-sql
 # or
-bun add @yourname/zod-sql
+bun add @jayobado/zod-sql
 ```
 
 ---
