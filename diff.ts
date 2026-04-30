@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import type { z } from 'zod'
 import { generateSnapshot } from './snapshot.ts'
 import type {
 	SqlMapOptions,
@@ -122,6 +122,18 @@ function diffTable(
 
 	return diff
 }
+
+
+/**
+ * 
+ * @param oldSnapshot 
+ * @param newSchemas 
+ * @param options 
+ * @returns 
+ * 
+ * Generates a diff between the old schema snapshot and the new schemas, returning a SchemaDiff object that describes added, removed, and modified tables and columns.
+ * This diff can then be used to generate migration scripts or for analysis.
+ */
 
 export function generateDiff(
 	oldSnapshot: Snapshot,

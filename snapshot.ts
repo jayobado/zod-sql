@@ -8,6 +8,33 @@ import type {
 	ForeignKeySnapshot,
 } from './types.ts'
 
+
+/**
+ * 
+ * @param schemas 
+ * @param options 
+ * @returns 
+ * 
+ * Generate	s a snapshot of the current database schema based on the provided Zod schemas.
+ * The snapshot includes detailed information about tables, columns, data types, constraints, and keys.
+ * This can be used for schema diffing and migration generation in the future.
+ * Validates the structure of the Zod schemas and ensures that identifiers are valid.
+ * Supports custom SQL type mapping through options.
+ * 
+ * Example usage:
+ * 
+ * const snapshot = generateSnapshot({
+ *   users: z.object({
+ *     id: pk(autoIncrement(z.number())),
+ *     name: z.string(),
+ *     email: unique(z.string().email()),
+ *     profileId: fk(z.number(), 'profiles', 'id'),
+ *   }),
+ * });
+ * 
+ * This would generate a snapshot representing a "users" table with the specified columns and constraints.
+ */
+
 export function generateSnapshot(
 	schemas: Record<string, z.ZodObject<z.ZodRawShape>>,
 	options?: SqlMapOptions & { name?: string }

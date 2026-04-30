@@ -86,6 +86,15 @@ function readDescribeTokens(schema: z.ZodType | null | undefined): string[] {
 	return desc.split(',').map((s: string) => s.trim()).filter(Boolean)
 }
 
+
+/** * 
+ * @param schema 
+ * @param options 
+ * @returns 
+ * 
+ * Maps a Zod schema to its corresponding SQL type and metadata based on the provided options.
+ */
+
 export function sqlMap(
 	schema: z.ZodType,
 	options: SqlMapOptions = {}

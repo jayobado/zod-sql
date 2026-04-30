@@ -1,3 +1,10 @@
+/**	
+ * @module zod-sql
+ *
+ * A toolkit to generate SQL DDL statements directly from Zod schemas.
+ * Supports multiple SQL dialects and provides utilities for schema snapshots,
+ * diffing, and migration generation.
+ */
 export { generateSnapshot, saveSnapshot, loadSnapshot } from './snapshot.ts'
 export { generateCreateTableStatements } from './create.ts'
 export { generateDiff } from './diff.ts'

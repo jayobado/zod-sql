@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import type { z } from 'zod'
 import { validateIdentifier } from './helpers.ts'
 import { generateCreateTableStatements } from './create.ts'
 import type {
@@ -119,6 +119,16 @@ function generateModifyColumnStatements(
 	return statements
 }
 
+/**
+ * 
+ * @param diff 
+ * @param schemas 
+ * @param options 
+ * @returns 
+ * 
+ * Generates SQL ALTER TABLE statements based on the provided schema diff.
+ * 
+ */
 export function generateAlterTableStatements(
 	diff: SchemaDiff & { newSnapshot?: Snapshot },
 	schemas: Record<string, z.ZodObject<z.ZodRawShape>>,
@@ -204,9 +214,17 @@ export function generateAlterTableStatements(
 	return statements
 }
 
-// ─── Migration runner ─────────────────────────────────────────────────────────
-// Database-agnostic — pass your own execute function.
-// Skips comment lines automatically.
+
+/**
+ * 
+ * @param statements 
+ * @param execute 
+ * 
+ * runMigrations executes the given SQL statements using the provided execute function.
+ * This function is database-agnostic, allowing you to pass your own execute function
+ * that interacts with your specific database client.
+ * 
+ */
 
 export async function runMigrations(
 	statements: string[],

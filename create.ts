@@ -1,7 +1,21 @@
-import { z } from 'zod'
+import type { z } from 'zod'
 import { validateIdentifier } from './helpers.ts'
 import { sqlMap } from './map.ts'
 import type { SqlDialect } from './types.ts'
+
+/**
+ * 
+ * @param tableName 
+ * @param schema 
+ * @param options 
+ * @returns 
+ * 
+ * Generates a SQL CREATE TABLE statement based on the provided Zod schema.
+ * Supports MySQL, PostgreSQL, and SQLite dialects with customizable options.
+ * Validates identifiers and schema structure before generating the SQL statement.
+ * Handles various field constraints, default values, and key definitions.
+ * Provides warnings for potential issues like AUTO_INCREMENT without PRIMARY KEY.
+ */
 
 export function generateCreateTableStatements(
 	tableName: string,
